@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'lato';
+        }
+        h5 {
+            margin: 20px 0px 20px 0px;
+                            font-family: 'lato';
+        }
+        img {
+            vertical-align: middle;
+            max-width: 30%;
+            width: 30%;
+            max-height: 100%;
+            margin: 0%;
+            padding-right: 2px;
+            float: left;
+        }
+        button {
+            padding: 2px;
+            margin: 0.5% 1% 0% 1%;
+            width: 48%;
+            max-width: 48%;
+            height: 50px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 2px solid steelblue;
+            -webkit-border-radius: 10px;
+            background-color: white;
+              font-family: 'lato';
+        }
+        button:hover {
+            -webkit-box-shadow: 100px 600px 500px #ccc;
+            box-shadow: 2px 6px 5px #ccc;
+            -moz-box-shadow: 100px 600px 100px #ccc;
+            border: 3px solid #385072;
+            -moz-border-radius: 10px;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .vertical-center {
+            vertical-align: middle;
+        }
+.image:hover {
+  box-shadow: 50px blue;
+  transform: translateY(4px);
+}
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+         window.addEventListener('load', (event) => {
+                      void function $getLines($) {
+                function countLines($element) {
+                    var lines = 0;
+                    var greatestOffset = void 0;
+                    $element.find('character').each(function () {
+                        if (!greatestOffset || this.offsetTop > greatestOffset) {
+                            greatestOffset = this.offsetTop;
+                            ++lines;
+                        }
+                    });
+                    return lines;
+                }
+                $.fn.getLines = function $getLines() {
+                    var lines = 0;
+                    var clean = this;
+                    var dirty = this.clone();
+                    (function wrapCharacters(fragment) {
+                        var parent = fragment;
+                        $(fragment).contents().each(function () {
+                            if (this.nodeType === Node.ELEMENT_NODE) {
+                                wrapCharacters(this);
+                            }
+                            else if (this.nodeType === Node.TEXT_NODE) {
+                                void function replaceNode(text) {
+                                    var characters = document.createDocumentFragment();
+                                    text.nodeValue.replace(/[\s\S]/gm, function wrapCharacter(character) {
+                                        characters.appendChild($('<character>' + character + '</>')[0]);
+                                    });
+                                    parent.replaceChild(characters, text);
+                                }(this);
+                            }
+                        });
+                    }(dirty[0]));
+                    clean.replaceWith(dirty);
+                    lines = countLines(dirty);
+                    dirty.replaceWith(clean);
+                    return lines;
+                };
+            }(jQuery);
+            $('span').each(function () {
+                console.log($(this).getLines());
+                if($(this).getLines() == 1){
+                    // var parentTag = $( this ).parent().get( 0 ).tagName;
+                    // console.log(parentTag)
+                    $( this ).prev().css( "float", "none" )
+                }
+            })
+            const { title } = Qs.parse(location.search, { ignoreQueryPrefix: true })
+        document.getElementById("heading").innerHTML = title 
+    })
+           function higgs() {
+            console.log("1")
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "Mitra Higgs Domino"
+                }),
+                "*"
+            );
+        }
+        function pubg() {
+            console.log("2")
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "claim PUBG Royale Pass"
+                }),
+                "*"
+            );
+        }
+        function mlbp() {
+            console.log("3")
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "Freya after making a purchase"
+                }),
+                "*"
+            );
+        }
+        function rag() {
+            console.log("4")
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "Cara Klaim Big Cat Coins Zeny dan Premium di Ragnarok Setelah TopUp"
+                }),
+                "*"
+            );
+        }
+         function sgame() {
+            console.log("4")
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "How to install games on the Steam application"
+                }),
+                "*"
+            );
+        }
+        function klaim() {
+            console.log("4")
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "Cara Klaim Item Game Island King"
+                }),
+                "*"
+            );
+        }
+        function strongpunch() {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "How to Claim ONE PUNCH MAN The Strongest Coupon"
+                }),
+                "*"
+            );
+        }
+        function withdraw() {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "How To Withdraw Funds In Game Island King"
+                }),
+                "*"
+            );
+        }
+        function strongpunch() {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "How to Claim ONE PUNCH MAN The Strongest Coupon"
+                }),
+                "*"
+            );
+        }
+             function fireice() {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "How To Claim The Battle Exchange Medal In Rise of Empires: Ice and Fire Game"
+                }),
+                "*"
+            );
+        }
+        function back() {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "@go-back"
+                }),
+                "*"
+            );
+        }
+    </script>
+    <div class = "image">
+    <img src="https://cdn.yellowmessenger.com/KseiGAPc8y401621566579976.jpeg" alt="" style="float: right;width:25px;height:25px;max-width: 40px;max-height: 40px;margin-right: 4px;" onclick="back()">
+    </div>
+        </br>
+      <h5 id = "heading" style ="font-weight:bold" > Please choose the User ID Guide below.  </h5>
+<!--         <button type="button" onclick="higgs()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/QcNWIA7t2F1w1621310656950.png" alt="Place Holder" /> <span> Mitra Higgs Domino </span>
+        </button> -->
+        <button type="button" onclick="pubg()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/DIUwoQ3dXJW11621310916023.png" alt="Place Holder" /> <span>PUBG Royale Pass </span>
+        </button>
+<!--         <button type="button" onclick="mlbp()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/FuXxevambEXI1621263064445.png" alt="Place Holder" /> <span> MLBB: Freya </span>
+        </button> -->
+        <button type="button" onclick="rag()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/XATl6jiNXKzw1621270097191.png" alt="Place Holder" /> <span>  Ragnarok M </span>
+        </button>
+        <button type="button" onclick="sgame()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/ebAbcs9HBMzC1621257918055.png" alt="Place Holder" />   Instal Game Steam
+        </button>
+        <button type="button" onclick="klaim()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/ejDdYLmyjByb1622130394434.png" alt="Place Holder" /> <span>  Klaim Item Island King </span>
+        </button>
+         <button type="button" onclick="strongpunch()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/7RX0oIQkZNmQ1623426762541.png" alt="Place Holder" /> <span> One Punch Man </span>
+        </button>
+         <button type="button" onclick="withdraw()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/ejDdYLmyjByb1622130394434.png" alt="Place Holder" /> <span> Tarik Dana Game Island King</span>
+        </button>
+<!--         <button type="button" onclick="fireice()" class="right primary-btn col-xs-11 text-left">
+            <img src="https://cdn.yellowmessenger.com/Boqf9JS89Ema1628764512501.jpg" alt="Place Holder" /> <span> Rise of Empires: Ice and Fire</span>
+        </button> -->
+</body>
+</html>
